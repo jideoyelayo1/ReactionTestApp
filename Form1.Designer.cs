@@ -1,6 +1,6 @@
 ﻿namespace ReactionTestApp
 {
-    partial class Form1
+    partial class Reaction
     {
         /// <summary>
         ///  Required designer variable.
@@ -34,6 +34,7 @@
             // 
             // ClickButton
             // 
+            this.ClickButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClickButton.Location = new System.Drawing.Point(12, 154);
             this.ClickButton.Name = "ClickButton";
             this.ClickButton.Size = new System.Drawing.Size(306, 124);
@@ -44,6 +45,7 @@
             // 
             // DisplayButton
             // 
+            this.DisplayButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DisplayButton.Location = new System.Drawing.Point(12, 12);
             this.DisplayButton.Name = "DisplayButton";
             this.DisplayButton.Size = new System.Drawing.Size(306, 136);
@@ -52,15 +54,15 @@
             this.DisplayButton.UseVisualStyleBackColor = true;
             this.DisplayButton.Click += new System.EventHandler(this.DisplayButton_Click);
             // 
-            // Form1
+            // Reaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 288);
             this.Controls.Add(this.DisplayButton);
             this.Controls.Add(this.ClickButton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Reaction";
+            this.Text = "Reaction Test";
             this.ResumeLayout(false);
 
         }
@@ -68,6 +70,6 @@
         #endregion
 
         private Button ClickButton;
-        private Button DisplayButton;
+        public Button DisplayButton;
     }
 }

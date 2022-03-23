@@ -2,9 +2,9 @@ using System.Diagnostics;
 
 namespace ReactionTestApp
 {
-    public partial class Form1 : Form
+    public partial class Reaction : Form
     {
-        public Form1()
+        public Reaction()
         {
             InitializeComponent();
             DisplayButton.Text = "Click here to start";
