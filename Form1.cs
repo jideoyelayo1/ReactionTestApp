@@ -7,13 +7,16 @@ namespace ReactionTestApp
         public Form1()
         {
             InitializeComponent();
-            ClickButton.Text = "Start";
+            DisplayButton.Text = "Click here to start";
+            ClickButton.Text = "";
         }
 
-        public static bool clickOn = false;
-        public static bool TimeFin = false;
+        public static bool clickOn = false,TimeFin = false, Restart = false;
+
         public async void Play()
         {
+            DisplayButton.Text = "";
+            Restart = false;
             Random rnd = new Random();
             var rndNum = rnd.Next(50,5000);
             ClickButton.BackColor = Color.Red;
@@ -33,6 +36,7 @@ namespace ReactionTestApp
            Stopwatch stop = new Stopwatch();
             stop.Start();
             ClickButton.BackColor = Color.Green;
+            ClickButton.Text = "";
             while (!clickOn)
             {
                 await Task.Delay(1);
@@ -40,6 +44,9 @@ namespace ReactionTestApp
             stop.Stop();
             TimeSpan ts = stop.Elapsed;
             DisplayButton.Text = Convert.ToString(ts.TotalMilliseconds)+ " milliseconds";
+            if (ts.TotalMilliseconds > 5000)
+                DisplayButton.Text += "\nWere You sleeping? You must be tired";
+            Restart = true;
 
 
 
@@ -58,10 +65,14 @@ namespace ReactionTestApp
 
         private async void DisplayButton_Click(object sender, EventArgs e)
         {
-            if(ClickButton.Text == "Start")
+            if(ClickButton.Text == "")
                 Play();
-            if(DisplayButton.Text.Contains(" milliseconds"))
-                Application.Restart();
+            if (Restart)
+            {
+                ClickButton.Text = "";
+            }
+            //if(DisplayButton.Text.Contains(" milliseconds"))
+              //  Application.Restart();
 
         }
     }
